@@ -45,11 +45,7 @@ The bot computes: `warmup_time = target - (5h - hours_remaining)`.
 3. **Scheduling**: Schedules are persisted in SQLite and restored on bot restart using `setTimeout`.
 4. **Auth**: Only Telegram user IDs listed in `TELEGRAM_ALLOWED_USER_IDS` can use the bot.
 
-## Prerequisites
-
-- **Claude Code CLI** must be installed and authenticated on the host machine (or inside the Docker container). The bot invokes `claude -p` directly.
-
-## Limitations
+### Limitations
 
 Session tracking is **self-managed** — the bot records when it starts a session and computes time remaining locally. There is no Anthropic API to query session status, and we intentionally avoid reverse-engineering internal endpoints to prevent account bans.
 
@@ -61,9 +57,15 @@ This means:
 
 ## Setup
 
+### Prerequisites
+
+- **Claude Code CLI** must be installed and authenticated on the host machine (or inside the Docker container).
+
+### Installation
+
 ```bash
+# edit .env with your values
 cp .env.example .env
-# Edit .env with your values
 pnpm install
 pnpm build
 pnpm start
