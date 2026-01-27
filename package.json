@@ -1,0 +1,33 @@
+{
+  "name": "claude-code-session-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot to warm up your Claude code session while you are away",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "start": "node dist/main.js",
+    "dev": "tsx --watch src/main.ts"
+  },
+  "keywords": [],
+  "author": "Sleeyax",
+  "license": "MIT",
+  "packageManager": "pnpm@10.25.0",
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node-telegram-bot-api": "^0.64.13",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "chrono-node": "^2.9.0",
+    "dotenv": "^17.2.3",
+    "node-telegram-bot-api": "^0.67.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
+    ]
+  }
+}
