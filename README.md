@@ -75,10 +75,11 @@ pnpm start
 
 | Variable                    | Description                                         |
 | --------------------------- | --------------------------------------------------- |
-| `TELEGRAM_BOT_TOKEN`        | Bot token from [@BotFather](https://t.me/BotFather) |
-| `TELEGRAM_ALLOWED_USER_IDS` | Comma-separated Telegram user IDs                   |
-| `TIMEZONE`                  | Display timezone (default: `UTC`)                   |
-| `DB_PATH`                   | SQLite database path (default: `data/bot.db`)       |
+| `TELEGRAM_BOT_TOKEN`        | Bot token from [@BotFather](https://t.me/BotFather)    |
+| `TELEGRAM_ALLOWED_USER_IDS` | Comma-separated Telegram user IDs                      |
+| `TIMEZONE`                  | Display timezone (default: `UTC`)                      |
+| `DB_PATH`                   | SQLite database path (default: `data/bot.db`)          |
+| `CLAUDE_CODE_OAUTH_TOKEN`   | OAuth token for Claude CLI auth (used in Docker)       |
 
 ## Docker
 
@@ -86,6 +87,4 @@ pnpm start
 docker compose up -d --build
 ```
 
-The compose file mounts `~/.claude` for Claude CLI auth and a volume for the SQLite database.
-
-Requires `claude` CLI to be installed and authenticated in the container (handled by the Dockerfile).
+Set `CLAUDE_CODE_OAUTH_TOKEN` in your `.env` file for Claude CLI auth inside the container.

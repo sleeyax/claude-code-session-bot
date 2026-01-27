@@ -3,6 +3,5 @@ services:
     build: .
     env_file: .env
     volumes:
-      - ~/.claude:/root/.claude
       - ./data:/data
     restart: unless-stopped
