@@ -11,7 +11,7 @@ const fmt = new Intl.DateTimeFormat("en-GB", {
   timeStyle: "short",
 });
 
-function fmtDuration(ms: number): string {
+export function fmtDuration(ms: number): string {
   if (ms <= 0) return "expired";
   const h = Math.floor(ms / 3_600_000);
   const m = Math.floor((ms % 3_600_000) / 60_000);
@@ -20,6 +20,21 @@ function fmtDuration(ms: number): string {
 
 function isAllowed(msg: TelegramBot.Message): boolean {
   return !!msg.from && ALLOWED_USER_IDS.includes(msg.from.id);
+}
+
+export function parseScheduleInput(input: string): { dateStr: string; hours: number } {
+  const parts = input.split(/\s+/);
+  let hours = 2;
+  let dateStr = input;
+  const hoursMatch = parts[parts.length - 1].match(/^(\d+(?:\.\d+)?)h?$/);
+  if (hoursMatch && parts.length > 1) {
+    const val = parseFloat(hoursMatch[1]);
+    if (val >= 0.5 && val <= 5) {
+      hours = val;
+      dateStr = parts.slice(0, -1).join(" ");
+    }
+  }
+  return { dateStr, hours };
 }
 
 export function createBot(token: string): TelegramBot {
@@ -91,19 +106,7 @@ export function createBot(token: string): TelegramBot {
   bot.onText(/\/schedule (.+)/, (msg, match) => {
     if (!isAllowed(msg)) return;
     const input = match![1].trim();
-    const parts = input.split(/\s+/);
-
-    // Check if last token is hours (e.g. "3", "3h", "2.5h")
-    let hours = 2;
-    let dateStr = input;
-    const hoursMatch = parts[parts.length - 1].match(/^(\d+(?:\.\d+)?)h?$/);
-    if (hoursMatch && parts.length > 1) {
-      const val = parseFloat(hoursMatch[1]);
-      if (val >= 0.5 && val <= 5) {
-        hours = val;
-        dateStr = parts.slice(0, -1).join(" ");
-      }
-    }
+    const { dateStr, hours } = parseScheduleInput(input);
 
     const targetDate = chrono.parseDate(dateStr, new Date(), { forwardDate: true });
     if (!targetDate) {

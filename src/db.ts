@@ -4,8 +4,8 @@ import type { Session, Schedule } from "./types";
 
 let db: Database.Database;
 
-export function initDb(): void {
-  db = new Database(DB_PATH);
+export function initDb(path?: string): void {
+  db = new Database(path ?? DB_PATH);
   db.pragma("journal_mode = WAL");
 
   db.exec(`

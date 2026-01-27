@@ -28,9 +28,13 @@ export function restoreSchedules(): void {
   }
 }
 
-export function addSchedule(targetDatetime: Date, hoursRemaining: number): Schedule | string {
+export function calculateWarmupAt(targetDatetime: Date, hoursRemaining: number): Date {
   const warmupAtMs = targetDatetime.getTime() - (SESSION_DURATION_MS - hoursRemaining * 3600_000);
-  const warmupAt = new Date(warmupAtMs);
+  return new Date(warmupAtMs);
+}
+
+export function addSchedule(targetDatetime: Date, hoursRemaining: number): Schedule | string {
+  const warmupAt = calculateWarmupAt(targetDatetime, hoursRemaining);
 
   if (warmupAt.getTime() <= Date.now()) {
     return `Warmup time already passed (would have been ${warmupAt.toISOString()})`;

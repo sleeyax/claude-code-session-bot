@@ -7,7 +7,9 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "start": "node dist/main.js",
-    "dev": "tsx --watch src/main.ts"
+    "dev": "tsx --watch src/main.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "keywords": [],
   "author": "Sleeyax",
@@ -17,7 +19,8 @@
     "@types/better-sqlite3": "^7.6.13",
     "@types/node-telegram-bot-api": "^0.64.13",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   },
   "dependencies": {
     "better-sqlite3": "^12.6.2",
