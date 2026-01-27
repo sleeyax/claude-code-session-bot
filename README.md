@@ -19,6 +19,15 @@ This bot starts sessions while you sleep. Schedule `/schedule tomorrow 9am` and 
 | `/cancel <id>`                 | Cancel a scheduled warmup                                                        |
 | `/history`                     | Show recent session history                                                      |
 
+<details>
+<summary>Click to show screenshots</summary>
+
+![telegram screenshot 1](./docs/images/2026-01-27_21-03.png)
+
+![telegram screenshot 2](./docs/images/2026-01-27_21-02.png)
+
+</details>
+
 ### Schedule examples
 
 ```
