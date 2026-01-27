@@ -17,6 +17,7 @@ COPY --from=build /app/node_modules/ node_modules/
 COPY --from=build /app/dist/ dist/
 
 ENV DB_PATH=/data/bot.db
+ENV TIMEZONE=UTC
 VOLUME ["/data", "/root/.claude"]
 
 CMD ["node", "dist/main.js"]
