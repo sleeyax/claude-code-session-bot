@@ -108,7 +108,7 @@ export function createBot(token: string): TelegramBot {
     const input = match![1].trim();
     const { dateStr, hours } = parseScheduleInput(input);
 
-    const targetDate = chrono.parseDate(dateStr, new Date(), { forwardDate: true });
+    const targetDate = chrono.parseDate(dateStr, { instant: new Date(), timezone: TIMEZONE }, { forwardDate: true });
     if (!targetDate) {
       bot.sendMessage(msg.chat.id, "Could not parse datetime. Try: `tomorrow 9am`, `monday 14:00`, `jan 30 8:00`", { parse_mode: "Markdown" });
       return;
