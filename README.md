@@ -77,11 +77,11 @@ pnpm start
 
 | Variable                    | Description                                         |
 | --------------------------- | --------------------------------------------------- |
-| `TELEGRAM_BOT_TOKEN`        | Bot token from [@BotFather](https://t.me/BotFather)    |
-| `TELEGRAM_ALLOWED_USER_IDS` | Comma-separated Telegram user IDs                      |
-| `TIMEZONE`                  | Display timezone (default: `UTC`)                      |
-| `DB_PATH`                   | SQLite database path (default: `data/bot.db`)          |
-| `CLAUDE_CODE_OAUTH_TOKEN`   | OAuth token for Claude CLI auth (used in Docker)       |
+| `TELEGRAM_BOT_TOKEN`        | Bot token from [@BotFather](https://t.me/BotFather) |
+| `TELEGRAM_ALLOWED_USER_IDS` | Comma-separated Telegram user IDs                   |
+| `TIMEZONE`                  | Display timezone (default: `UTC`)                   |
+| `DB_PATH`                   | SQLite database path (default: `data/bot.db`)       |
+| `CLAUDE_CODE_OAUTH_TOKEN`   | OAuth token for Claude CLI auth (used in Docker)    |
 
 ## Docker
 
