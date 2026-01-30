@@ -2,6 +2,8 @@
 
 Telegram bot to warm up Claude Code sessions and track session timing.
 
+[blog post](https://dev.to/sleeyax/stop-wasting-hours-on-claude-code-pros-session-cooldown-4mak)
+
 ## Why?
 
 Claude Code Pro's 5-hour session cooldown means hours of dead time between sessions. If you exhaust your session at 3pm, you can't use Claude Code again until 8pm. That's half a workday gone.
